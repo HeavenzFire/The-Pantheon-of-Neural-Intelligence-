@@ -1,0 +1,8 @@
+{
+  "name": "Genuine Digital Intelligence",
+  "description": "Genuine Digital Intelligence (GDI) — A seamless next-generation hybrid platform uniting agentic nonlinear task orchestration, quantum engineering, and a living network of neural intellects for error-free infrastructure compilation.",
+  "requestFramePermissions": [
+    "microphone"
+  ],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
