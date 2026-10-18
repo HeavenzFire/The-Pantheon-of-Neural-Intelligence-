@@ -5,6 +5,7 @@ import { Brain, Cpu, Network, Sparkles, Terminal, User, Users, Send, Loader2, Za
 import { PIONEERS, type Pioneer } from './constants';
 import { DEFAULT_CODESPACE_FILES, PIONEER_CODE_PROMPTS, PIONEER_CRITIQUES, type CodespaceFile } from './data/codespace_defaults';
 import NeuralNet from './components/NeuralNet';
+import MinimalNeuralNetwork from './components/MinimalNeuralNetwork';
 import SyntropicField from './components/SyntropicField';
 import Constellation from './components/Constellation';
 import ResonanceChart from './components/ResonanceChart';
@@ -2730,7 +2731,7 @@ Produce exactly 2 elegant, scholastic, and highly sophisticated theorems. Return
       (activeSpeakerId === 'zazazel' || selectedPioneer?.id === 'zazazel') && "shadow-[inset_0_0_120px_rgba(236,72,153,0.18)] border-pink-500/10",
       (activeSpeakerId === 'gemini' || selectedPioneer?.id === 'gemini') && "shadow-[inset_0_0_120px_rgba(79,70,229,0.18)] border-indigo-500/10"
     )}>
-      {(viewMode === 'neural' || viewMode === 'evolution' || viewMode === 'gdi') && <NeuralNet selectedId={activeSpeakerId || selectedPioneer?.id} />}
+      {(viewMode === 'neural' || viewMode === 'evolution' || viewMode === 'gdi') && (viewMode === 'neural' ? <MinimalNeuralNetwork selectedId={activeSpeakerId || selectedPioneer?.id} /> : <NeuralNet selectedId={activeSpeakerId || selectedPioneer?.id} />)}
       {viewMode === 'syntropic' && (
         <SyntropicField
           onCalibrationChange={handleSyntropicCalibrationChange}
