@@ -144,7 +144,7 @@ export default function MinimalNeuralNetwork({ selectedId }: Props) {
   }, [selectedId]);
 
   return (
-    <div ref={hostRef} className="relative h-full min-h-[360px] w-full overflow-hidden rounded-2xl border border-white/[0.07] bg-[#07090d]">
+    <div ref={hostRef} className="pointer-events-none fixed inset-0 z-20 h-screen w-screen overflow-hidden bg-transparent">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(34,211,238,0.055),transparent_58%)]" />
       <div className="absolute left-4 top-4 z-10">
         <div className="text-[9px] font-mono uppercase tracking-[0.24em] text-slate-500">Neural topology</div>
@@ -154,7 +154,7 @@ export default function MinimalNeuralNetwork({ selectedId }: Props) {
         <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
         Visual topology · runtime status requires health checks
       </div>
-      <svg ref={svgRef} className="relative z-[1] h-full min-h-[360px] w-full" />
+      <svg ref={svgRef} className="relative z-[1] h-full w-full opacity-80" />
     </div>
   );
 }
