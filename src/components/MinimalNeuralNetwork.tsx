@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
-import { PIONEERS } from '../constants';
+import { PIONEERS, type Pioneer } from '../constants';
 
 interface GraphNode extends d3.SimulationNodeDatum {
   id: string;
@@ -38,7 +38,7 @@ export default function MinimalNeuralNetwork({ selectedId }: Props) {
     svg.attr('viewBox', `0 0 ${width} ${height}`).attr('preserveAspectRatio', 'xMidYMid meet');
 
     const core: GraphNode = { id: 'heavenzfire-core', label: 'HEAVENZFIRE', group: 'core', color: '#e5e7eb' };
-    const agents: GraphNode[] = PIONEERS.slice(0, 12).map((p: any) => ({
+    const agents: GraphNode[] = PIONEERS.slice(0, 12).map((p: Pioneer) => ({
       id: String(p.id),
       label: String(p.name),
       group: 'agent',
@@ -85,7 +85,7 @@ export default function MinimalNeuralNetwork({ selectedId }: Props) {
     const node = svg.append('g').selectAll('g').data(nodes).join('g')
       .attr('role', 'img')
       .attr('aria-label', (d) => d.label || d.id)
-      .style('cursor', (d) => d.group === 'agent' ? 'pointer' : 'default');
+      .style('cursor', 'default');
 
     node.filter((d) => d.group !== 'signal').append('circle')
       .attr('r', (d) => d.group === 'core' ? 8 : 4)
